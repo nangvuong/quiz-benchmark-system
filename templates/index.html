@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizGen: AI MCQ Generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>QuizGen <span class="badge">AI</span></h1>
+            <p>Generate Multiple-Choice Questions from any text instantly.</p>
+        </header>
+        
+        <main>
+            <div class="input-section glass-panel">
+                <label for="context">Input Text Context</label>
+                <textarea id="context" placeholder="Paste your article, paragraph, or document here..."></textarea>
+                
+                <div class="model-selection">
+                    <p>Select Models:</p>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" value="rule_based" checked> Rule-Based</label>
+                        <label><input type="checkbox" value="tfidf" checked> TF-IDF</label>
+                        <label><input type="checkbox" value="t5" checked> T5 (Neural)</label>
+                    </div>
+                </div>
+                
+                <button id="generate-btn" class="primary-btn">
+                    <span class="btn-text">Generate MCQs</span>
+                    <span class="loader hidden"></span>
+                </button>
+            </div>
+            
+            <div id="results-section" class="results-section">
+                <!-- Results will be injected here -->
+            </div>
+        </main>
+    </div>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
